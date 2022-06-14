@@ -49,4 +49,16 @@ public class CategoryDao {
 
         return rows == 1;
     }
+
+    // Metodo BORRAR CATEGORIA
+
+    public boolean deleteCategory(int idcategory) throws SQLException {
+        String sql = "DELETE FROM category WHERE id_category = ?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idcategory);
+        int rows = statement.executeUpdate();
+
+        return rows == 1;
+    }
 }
