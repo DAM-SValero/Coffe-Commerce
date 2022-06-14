@@ -1,8 +1,6 @@
 package com.coffecomerce.dao;
 
 import com.coffecomerce.domain.Provider;
-import com.coffecomerce.domain.User;
-import com.coffecomerce.exception.UserAlredyExistException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
