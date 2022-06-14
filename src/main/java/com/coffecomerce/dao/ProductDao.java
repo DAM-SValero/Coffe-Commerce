@@ -6,6 +6,7 @@ public class ProductDao {
 
     private Connection connection;
 
+    //TODO GRS
     /**
      * CONSTRUCTOR PARA CONECTAR CON LA BBDD
      */
