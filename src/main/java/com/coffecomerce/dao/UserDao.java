@@ -27,7 +27,7 @@ public class UserDao {
         if (existUsername(user.getUsername()))
             throw new UserAlredyExistException();
 
-        String sql = "INSERT INTO users (firstname, lastname, email, dni, username, pass, rol) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (firstname, surname, email, dni, username, pass) VALUES (?, ?, ?, ?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, user.getFirstname());
@@ -36,7 +36,6 @@ public class UserDao {
         statement.setString(4, user.getEmail());
         statement.setString(5, user.getUsername());
         statement.setString(6, user.getPass());
-        statement.setString(7, user.getRol());
         statement.executeUpdate();
     }
 

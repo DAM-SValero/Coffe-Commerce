@@ -49,10 +49,10 @@
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button> -->
                     <div class="">
-                        <button type="button" class="btn btn-light">LogIn</button>
+                        <a href="login_register.jsp" type="submit" class="btn btn-light">LogIn</button>
                     </div>
                    <div class="ms-2">
-                    <button type="button" class=" btn btn-light">Register</button>
+                    <a href="login_register.jsp" type="submit" class=" btn btn-light">Register</a>
                    </div>
                 </form>
             </div>
