@@ -17,7 +17,19 @@
 	
 </head>
 
-<body> 
+<body>
+<!-- Código para enviar el formulario de forma asíncrona -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("form").on("submit", function(event) {
+			event.preventDefault();
+			var formValue = $(this).serialize();
+			$.post("new-user", formValue, function(data) { <!-- servlet que recibe todos los datos del formulario -->
+				$("#result").html(data); <!-- Lo usamos para enviar la respuesta al div en la misma página -->
+			});
+		});
+	});
+</script>
 	<section class="section-log">
 		<div class="container">
 		  <div class="user signinBx">
@@ -37,18 +49,22 @@
 		  </div>
 		  <div class="user signupBx">
 			<div class="formBx">
-			  <form action="" onsubmit="return false;">
+			  <form action="new-user" method="post">
 				<h2>Create an account</h2>
-				<input type="text" name="" placeholder="Username" />
-				<input type="email" name="" placeholder="Email Address" />
-				<input type="password" name="" placeholder="Create Password" />
-				<input type="password" name="" placeholder="Confirm Password" />
-				<input type="submit" name="" value="Sign Up" />
+				<input type="text" name="firstname" placeholder="Firtsname" />
+			  	<input type="text" name="surname" placeholder="Surname" />
+			  	<input type="text" name="dni" placeholder="DNI" />
+				<input type="email" name="email" placeholder="Email Address" />
+			  	<input type="text" name="username" placeholder="Username" />
+				<input type="password" name="pass" placeholder="Create Password" />
+				<input type="password" name="pass" placeholder="Confirm Password" />
+				<input type="submit" class="btn btn-primary" value="Sign Up" />
 				<p class="signup">
 				  Already have an account ?
 				  <a href="#" onclick="toggleForm();">Sign in.</a>
 				</p>
 			  </form>
+			<div id="result"></div> <!-- Pinta el resultado del envio asincrono con AJAX -->
 			</div>
 			<div class="imgBx"><img src="img/coffee_5.jpg" alt="" /></div>
 		  </div>
