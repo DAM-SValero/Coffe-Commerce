@@ -31,13 +31,13 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html">Coffe-Commerce</a>
+            <a class="navbar-brand" href="index.jsp">Coffe-Commerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -104,14 +104,10 @@
                                                 <!-- Product price-->
                                                 $40.00
                                             </div>
-                                            <div class="mt-4 d-flex justify-content-center">
-                                                <button type="button" class="mx-3 btn btn-primary">Modify</button>
-                                                <button type="button" class="mx-3 btn btn-danger">Delete</button>
-                                            </div>
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="product_detail.html">Product detail</a>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="product_detail.jsp">Product detail</a>
                                             </div>
                                         </div>
                                     </div>
