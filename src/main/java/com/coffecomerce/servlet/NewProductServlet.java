@@ -27,11 +27,11 @@ public class NewProductServlet extends HttpServlet {
 
         /** Recuperamos datos del formulario */
 
-        String productName = request.getParameter("ProdcutName");
-        String country = request.getParameter("Country");
-        String category = request.getParameter("Category");
-        String intensity = request.getParameter("Intensity");
-        double price = Double.parseDouble(request.getParameter("Price"));
+        String productName = request.getParameter("productname");
+        String country = request.getParameter("country");
+        String category = request.getParameter("category");
+        String intensity = request.getParameter("intensity");
+        double price = Double.parseDouble(request.getParameter("price"));
 
 
         Product product = new Product(productName, country, intensity, price ); //TODO Class Category y cambiar constructor ProductDao
