@@ -39,9 +39,9 @@ public class NewUserServlet extends HttpServlet {
         UserDao userDao = new UserDao(database.getConnection());
         try {
             userDao.add(user);
-            out.println("<a href=\"index.jsp\" class=\"btn btn-warning\" type=\"submit\">Usuario registrado correctamente</a>");
+            out.println("<a href=\"login_register.jsp\" class=\"btn btn-warning\" type=\"submit\">Usuario registrado correctamente</a>");
         } catch (UserAlredyExistException uaee) {
-            out.println("<a href=\"index.jsp\" class=\"btn btn-warning\" type=\"submit\">Usuario ya existe en la Base de Datos</a>");
+            out.println("<a href=\"login_register.jsp\" class=\"btn btn-warning\" type=\"submit\">Usuario ya existe en la Base de Datos</a>");
             uaee.printStackTrace();
         } catch (SQLException sqle) {
             out.println("<a href=\"index.jsp\" class=\"btn btn-warning\" type=\"submit\">Se ha producido un error al conectar con la BBDD</a>");
