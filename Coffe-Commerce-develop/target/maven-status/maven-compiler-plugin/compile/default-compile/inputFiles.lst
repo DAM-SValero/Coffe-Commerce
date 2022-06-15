@@ -1,0 +1,17 @@
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/ProviderDao.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/CategoryDao.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/OrderDao.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/ProductDao.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/domain/Order.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/domain/Detail.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/domain/Provider.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/domain/Category.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/domain/User.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/util/DateUtils.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/util/Constants.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/Database.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/servlet/NewUserServlet.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/domain/Product.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/UserDao.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/dao/DetailDao.java
+/Users/mateupego85/Desktop/mateus_repo/Coffe-Commerce-develop/src/main/java/com/coffecomerce/exception/UserAlredyExistException.java
