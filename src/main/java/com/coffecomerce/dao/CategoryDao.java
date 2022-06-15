@@ -16,7 +16,7 @@ public class CategoryDao {
         this.connection = connection;
     }
 
-    // Metodo AÑADIR CATEGORIA
+    /** Metodo AÑADIR CATEGORIA */
     public void addCategory(Category category){
         //Creamos sentencia SQL
         String sql = "INSERT INTO category (tipo) VALUES ( ? )";
@@ -32,7 +32,7 @@ public class CategoryDao {
         }
     }
 
-    // Metodo MODIFICAR CATEGORIA
+    /**  Metodo MODIFICAR CATEGORIA */
     public boolean modifyTipo(int idCategory, Category category) {
         int rows = 0;
         try {
@@ -52,7 +52,7 @@ public class CategoryDao {
         return rows == 1;
     }
 
-    // Metodo BORRAR CATEGORIA
+    /**  Metodo BORRAR CATEGORIA */
 
     public boolean deleteCategory(int idcategory) throws SQLException {
         String sql = "DELETE FROM category WHERE id_category = ?";
@@ -64,11 +64,11 @@ public class CategoryDao {
         return rows == 1;
     }
 
-    // Metodo LISTAR CATEGORIA
+    /**  Metodo LISTAR CATEGORIA */
 
     public ArrayList<Category> listAll(){
         String sql = "SELECT * FROM category ORDER BY tipo";
-        ArrayList<Category> usuario = new ArrayList<>();
+        ArrayList<Category> categories = new ArrayList<>();
 
         try {
 
@@ -79,15 +79,15 @@ public class CategoryDao {
                 category.setIdCategory(resultSet.getInt("id_category"));
                 category.setTipo(resultSet.getString("tipo"));
 
-                usuario.add(category);
+                categories.add(category);
             }
         }catch (SQLException sqe){
             sqe.printStackTrace();
         }
 
-        return usuario;
+        return categories;
     }
-    //Metodo de resultados
+    /** Metodo de resultados */
     private Category fromResultSet(ResultSet resultSet) throws SQLException {
         Category category = new Category();
 
