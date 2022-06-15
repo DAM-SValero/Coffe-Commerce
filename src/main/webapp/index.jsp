@@ -2,9 +2,6 @@
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
     User currentUser = (User) session.getAttribute("currentUser");
-    if (currentUser == null) {
-        response.sendRedirect("login_register.jsp");
-    }
 %>
 <!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
 
@@ -52,7 +49,6 @@
                         </ul>
                     </li>
                 </ul>
-                <h4 class="alert-heading">!!!!BIENVENIDO!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
 
                 <form class="d-flex">
                     <!-- <button class="btn btn-outline-dark" type="submit">
@@ -60,12 +56,26 @@
                         Cart
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button> -->
+                    <%
+                        if ((currentUser !=null)) {
+                    %>
+                    <h4 class="alert-heading">!!!!BIENVENIDO!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
+                    <div class="">
+                        <a href="logout" type="submit" class="btn btn-light">LogOff</a>
+                    </div>
+                    <%
+                        } else {
+                    %>
                     <div class="">
                         <a href="login_register.jsp" type="submit" class="btn btn-light">LogIn</a>
                     </div>
-                   <div class="ms-2">
-                    <a href="login_register.jsp" type="submit" class=" btn btn-light">Register</a>
-                   </div>
+                    <div class="ms-2">
+                        <a href="login_register.jsp" type="submit" class=" btn btn-light">Register</a>
+                    </div>
+                    <%
+                    }
+                    %>
+
                 </form>
             </div>
         </div>
