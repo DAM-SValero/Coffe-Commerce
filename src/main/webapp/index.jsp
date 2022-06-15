@@ -52,7 +52,7 @@
                         </ul>
                     </li>
                 </ul>
-                <h4 class="alert-heading">!!!!BIENVENIDO!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
+                <h5 class="text-muted">!!!! Welcome !!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h5>
 
                 <form class="d-flex">
                     <!-- <button class="btn btn-outline-dark" type="submit">
@@ -61,11 +61,9 @@
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button> -->
                     <div class="">
-                        <a href="login_register.jsp" type="submit" class="btn btn-light">LogIn</a>
+                        <a href="login_register.jsp" type="submit" class="btn btn-light"> LogIn / Register </a>
                     </div>
-                   <div class="ms-2">
-                    <a href="login_register.jsp" type="submit" class=" btn btn-light">Register</a>
-                   </div>
+
                 </form>
             </div>
         </div>
