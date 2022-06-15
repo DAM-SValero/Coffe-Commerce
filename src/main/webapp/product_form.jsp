@@ -17,36 +17,45 @@
 	
 </head>
 
-<body> 
+<body>
+<!-- AJAX envio a formulario -->
+<script type="text/javascript"> //!--Script de Ajax para asincronia de formulario con servidor-- >
+$(document).ready(function () {
+	$("form").on("submit", function (event) {
+		event.preventDefault();
+		var formValue = $(this).serialize();
+		$.post("addProduct", formValue, function (data) {
+			$("#result").html(data);
+		});
+	});
+});
+</script>
     <h1 class="display-3 text-muted text-center">PRODUCT FORM</h1>
-	<form class="row form-sniped">
+	<form action="addProduct" method="post" class="row form-sniped">
 		<div class="col-md-6">
 		  <label class="form-label">Product Name</label>
-		  <input type="text" class="form-control">
+		  <input type="text" name="productname" class="form-control">
 		</div>
-		<div class="col-md-6">
-		  <label class="form-label">Last Name</label>
-		  <input type="text" class="form-control">
-		</div>
+
 		<div class="col-md-6">
 		  <label class="form-label">Country</label>
-		  <input type="text" class="form-control">
+		  <input type="text" name="country" class="form-control">
 		</div>
 		<div class="col-md-6">
 		  <label class="form-label">Category</label>
-          <input type="text" class="form-control">
+          <input type="text" name="category" class="form-control">
 		  
 	 </div>
 		</div>
 		<div class="col-md-6">
 		  <label class="form-label">Amount</label>
-          <input type="text" class="form-control" name="currency-field" id="currency-field" 
-          pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" 
-          placeholder="$1,000,000.00">
+          <input type="number" name="price"  class="form-control"
+           value="" data-type="currency"
+          placeholder="10">
 		</div>
 		<div class="col-md-6">
 		  <label class="form-label">Intensity</label>
-		  <select class="form-control" id="rol">
+		  <select class="form-control" name="intensity">
 			<option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

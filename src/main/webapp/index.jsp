@@ -55,6 +55,9 @@
                     </li>
                 </ul>
 
+                <h5 class="text-muted">!!!! Welcome !!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h5>
+
+
                 <form class="d-flex">
                     <!-- <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
@@ -72,8 +75,9 @@
                         } else {
                     %>
                     <div class="">
-                        <a href="login_register.jsp" type="submit" class="btn btn-light">LogIn</a>
+                        <a href="login_register.jsp" type="submit" class="btn btn-light"> LogIn / Register </a>
                     </div>
+
                     <div class="ms-2">
                         <a href="login_register.jsp" type="submit" class=" btn btn-light">Register</a>
                     </div>
@@ -81,11 +85,13 @@
                     }
                     %>
 
+
                 </form>
             </div>
         </div>
     </nav>
     <!-- Header-->
+
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
@@ -102,9 +108,10 @@
     <!-- Section-->
     <section class="py-5">
 
-
         <div class="container px-4 px-lg-5 mt-5">
+         <button type="button" class="btn-lg m-4 btn btn-outline-secondary">+ Add Product</button>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
                 <div class="col mb-5">
 
                     <div class="card h-100">
@@ -146,6 +153,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- Footer-->
