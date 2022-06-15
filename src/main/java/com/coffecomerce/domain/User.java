@@ -22,6 +22,21 @@ public class User {
         this.username = username;
     }
 
+    /**
+     * CONSTRUCTOR PARA DAR DE ALTA DESDE LA WEB
+     */
+    public User(String firstname, String surname, String dni, String email, String username, String pass) {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.dni = dni;
+        this.email = email;
+        this.username = username;
+        this.pass = pass;
+    }
+
+    /**
+     * CONSTRUCTOR PARA DAR DE ALTA DESDE LA WEB UN ADMINISTRADOR
+     */
     public User(String firstname, String surname, String dni, String email, String username, String pass, String rol) {
         this.firstname = firstname;
         this.surname = surname;

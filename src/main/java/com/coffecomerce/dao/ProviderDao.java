@@ -38,13 +38,14 @@ public class ProviderDao {
      * METODO PARA MODIFICAR PROVEEDORES
      */
     public boolean modifyId(int idProvider, Provider provider) throws SQLException {
-        String sql = "UPDATE providers SET provider = ?, cif = ?, address = ?, country = ? WHERE idProvider = ?";
+        String sql = "UPDATE providers SET provider = ?, cif = ?, address = ?, country = ? WHERE id_Provider = ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, provider.getProvider());
         statement.setString(2, provider.getCif());
         statement.setString(3, provider.getAddress());
         statement.setString(4, provider.getCountry());
+        statement.setInt(5, idProvider);
         int rows = statement.executeUpdate();
         return rows ==1;
     }
@@ -53,7 +54,7 @@ public class ProviderDao {
      * METODO PARA BORRAR PROVEEDORES
      */
     public boolean deleteById(int idProvider) throws SQLException {
-        String sql = "DELETE FROM providers WHERE idProvider = ?";
+        String sql = "DELETE FROM providers WHERE id_Provider = ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, idProvider);
@@ -65,7 +66,7 @@ public class ProviderDao {
      * METODO PARA BUSCAR POR ID
      */
     public Optional<Provider> findById(int idProvider) throws SQLException {
-        String sql = "SELECT * FROM providers WHERE idProvider = ?";
+        String sql = "SELECT * FROM providers WHERE id_Provider = ?";
         Provider provider = null;
 
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -82,7 +83,7 @@ public class ProviderDao {
      * LISTADO DE LA TABLA PROVIDERS
      */
     public ArrayList<Provider> findAll() throws SQLException {
-        String sql = "SELECT * FROM player ORDER BY FirstName";
+        String sql = "SELECT * FROM providers ORDER BY FirstName";
         ArrayList<Provider> providers = new ArrayList<>();
 
         PreparedStatement statement = connection.prepareStatement(sql);
