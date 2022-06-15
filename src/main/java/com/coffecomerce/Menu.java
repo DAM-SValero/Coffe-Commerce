@@ -95,19 +95,6 @@ public class Menu {
         }
     }
 
-    private void showUsers2() {
-        UserDao userDao = new UserDao(connection);
-        try {
-            ArrayList<User> users = userDao.findAll();
-            for ( User user : users) {
-                System.out.println(user.getFirstname() + user.getSurname());
-            }
-
-        } catch (SQLException sqle) {
-            System.out.println("No se ha podido conectar con el servidor de base de datos. Comprueba que los datos son correctos y que el servidor se ha iniciado");
-            sqle.printStackTrace();  //PARA OBTENER LAS TRAZAS DE LA EXCEPCIÓN Y ASI LUEGO SEGUIR CON PRECISION EL ERROR
-        }
-    }
 
 }
 
