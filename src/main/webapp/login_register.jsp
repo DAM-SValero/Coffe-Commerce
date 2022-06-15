@@ -35,11 +35,11 @@
 		  <div class="user signinBx">
 			<div class="imgBx"><img src="img/coffee_7.jpg" alt="" /></div>
 			<div class="formBx">
-			  <form action="" onsubmit="return false;">
+			  <form action="login" method="post">
 				<h2>Sign In</h2>
-				<input type="text" name="" placeholder="Username" />
-				<input type="password" name="" placeholder="Password" />
-				<input type="submit" name="" value="Login" />
+				<input type="text" name="username" placeholder="Username" />
+				<input type="password" name="password" placeholder="Password" />
+				<input type="submit" class="btn btn-primary" value="Login" />
 				<p class="signup">
 				  Don't have an account ?
 				  <a href="#" onclick="toggleForm();">Sign Up.</a>
