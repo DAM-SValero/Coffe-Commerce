@@ -66,7 +66,7 @@ public class CategoryDao {
 
     // Metodo LISTAR CATEGORIA
 
-    public ArrayList<Category> listarTodos(){
+    public ArrayList<Category> listAll(){
         String sql = "SELECT * FROM category ORDER BY tipo";
         ArrayList<Category> usuario = new ArrayList<>();
 
