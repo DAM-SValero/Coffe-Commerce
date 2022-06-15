@@ -4,7 +4,9 @@ import com.coffecomerce.domain.Category;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CategoryDao {
 
@@ -61,4 +63,40 @@ public class CategoryDao {
 
         return rows == 1;
     }
+
+    // Metodo LISTAR CATEGORIA
+
+    public ArrayList<Category> listarTodos(){
+        String sql = "SELECT * FROM category ORDER BY tipo";
+        ArrayList<Category> usuario = new ArrayList<>();
+
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Category category = new Category();
+                category.setIdCategory(resultSet.getInt("id_category"));
+                category.setTipo(resultSet.getString("tipo"));
+
+                usuario.add(category);
+            }
+        }catch (SQLException sqe){
+            sqe.printStackTrace();
+        }
+
+        return usuario;
+    }
+    //Metodo de resultados
+    private Category fromResultSet(ResultSet resultSet) throws SQLException {
+        Category category = new Category();
+
+        category.setIdCategory(resultSet.getInt("id_category"));
+        category.setTipo(resultSet.getString("tipo"));
+
+        //Devuelve los resultados de la categoria
+        return category;
+    }
+
+
 }
