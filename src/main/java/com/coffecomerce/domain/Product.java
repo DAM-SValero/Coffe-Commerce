@@ -22,7 +22,7 @@ public class Product {
         this.country = country;
         this.intensity = intensity;
         this.price = price;
-        //this.category = category;
+        this.category = category;
     }
 
     public int getIdProduct() {

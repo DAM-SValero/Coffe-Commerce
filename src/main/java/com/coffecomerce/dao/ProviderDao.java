@@ -101,7 +101,8 @@ public class ProviderDao {
      */
     private Provider fromResultSet(ResultSet resultSet) throws SQLException {
         Provider provider = new Provider();
-        provider.setIdProvider(resultSet.getInt("idProvider"));
+
+        provider.setIdProvider(resultSet.getInt("id_Provider"));
         provider.setProvider(resultSet.getString("provider"));
         provider.setCif(resultSet.getString("cif"));
         provider.setAddress(resultSet.getString("address"));

@@ -13,7 +13,6 @@ public class ProductDao {
 
     private Connection connection;
 
-    //TODO GRS
     /**
      * CONSTRUCTOR PARA CONECTAR CON LA BBDD
      */
@@ -92,7 +91,7 @@ public class ProductDao {
      * LISTADO DE LA TABLA PRODUCTS
      */
     public ArrayList<Product> findAll() throws SQLException {
-        String sql = "SELECT * FROM products ORDER BY proname";
+        String sql = "SELECT * FROM products";
         ArrayList<Product> products = new ArrayList<>();
 
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -110,7 +109,9 @@ public class ProductDao {
      */
     private Product fromResultSet(ResultSet resultSet) throws SQLException {
         Product product = new Product();
-        product.setIdProduct(resultSet.getInt("idProduct"));
+
+        product.setIdProduct(resultSet.getInt("id_product"));
+        product.setIdCategory(resultSet.getInt("id_category"));
         product.setProname(resultSet.getString("proname"));
         product.setCountry(resultSet.getString("country"));
         product.setIntensity(resultSet.getString("intensity"));
