@@ -1,7 +1,9 @@
 package com.coffecomerce.servlet;
 
+import com.coffecomerce.dao.CategoryDao;
 import com.coffecomerce.dao.Database;
 import com.coffecomerce.dao.ProductDao;
+import com.coffecomerce.domain.Category;
 import com.coffecomerce.domain.Product;
 import com.coffecomerce.exception.ProductAlreadyExistException;
 import com.coffecomerce.exception.UserAlredyExistException;
@@ -33,11 +35,20 @@ public class NewProductServlet extends HttpServlet {
         String intensity = request.getParameter("intensity");
         double price = Double.parseDouble(request.getParameter("price"));
 
-
-        Product product = new Product(productName, country, intensity, price ); //TODO Class Category y cambiar constructor ProductDao
-
         Database database = new Database();
+        CategoryDao categoryDao = new CategoryDao(database.getConnection());
         ProductDao productDao = new ProductDao(database.getConnection());
+        Category newCategory = null;
+
+        try {
+            newCategory = categoryDao.findByName(category).get();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        Product product = new Product(productName, country, intensity, price, newCategory);
+
+
 
         try {
             productDao.add(product); //TODO Category
