@@ -33,12 +33,21 @@ public class NewProductServlet extends HttpServlet {
         String country = request.getParameter("country");
         int category = Integer.parseInt(request.getParameter("idCategory"));
         String intensity = request.getParameter("intensity");
-        int price = Integer.parseInt(request.getParameter("price"));
+
+        String img = request.getParameter("img");
+        double price = Double.parseDouble(request.getParameter("price"));
 
         Database database = new Database();
         ProductDao productDao = new ProductDao(database.getConnection());
 
-        Product product = new Product(productName, country, intensity, price, category);
+
+        try {
+            newCategory = categoryDao.findByName(category).get();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        Product product = new Product(productName, country, intensity, price, newCategory, img);
 
 
 

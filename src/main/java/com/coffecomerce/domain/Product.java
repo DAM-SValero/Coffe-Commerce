@@ -6,7 +6,9 @@ public class Product {
     private String  proname;
     private String country;
     private String intensity;
-    private int price;
+
+    private double price;
+    private String img;
 
 
     /**
@@ -18,13 +20,25 @@ public class Product {
 
     }
 
-    public Product(String proname, String country, String intensity, int price ,int idCategory) {
+    public Product(String proname, String country, String intensity, double price , Category category, String img) {
+
         this.proname = proname;
         this.country = country;
         this.intensity = intensity;
         this.price = price;
-        this.idCategory = idCategory;
+        this.category = category;
+        this.img = img;
+
     }
+
+ public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+            this.img = img;
+        }
+
 
     public int getIdProduct() {
         return idProduct;
