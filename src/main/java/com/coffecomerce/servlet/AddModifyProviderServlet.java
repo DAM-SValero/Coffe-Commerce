@@ -46,7 +46,6 @@ public class AddModifyProviderServlet extends HttpServlet {
         String country = request.getParameter("country");
         address = address.toUpperCase();
         String action = request.getParameter("action");
-        String idUser = request.getParameter("idUser");
         String idProvider = request.getParameter("idProvider");
         Provider provider = new Provider(nameProvider, cif, address, country);
 
