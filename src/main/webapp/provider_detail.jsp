@@ -47,7 +47,7 @@
       <div> <a href="#"><img src="img/coffee_2.jpg"></a></div>
     </div> <!-- slider-product.// -->
     <div class="mt-4 d-flex justify-content-center">
-        <a href="add-modify-provider" type="submit" class="mx-3 btn btn-primary">Modify</a>
+        <a href="provider_form.jsp?id_provider=<%= provider.getIdProvider() %>" type="submit" class="mx-3 btn btn-primary">Modify</a>
         <a href="provider_delete_confirm.jsp?id_provider=<%= provider.getIdProvider() %>" class="mx-3 btn btn-danger">Eliminar</a>
 
     </div>
