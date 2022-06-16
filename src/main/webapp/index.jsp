@@ -101,6 +101,7 @@
                 %>
                 <a href="product_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Product</a>
                 <a href="provider_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Provider</a>
+                <a href="provider_list.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">List Provider</a>
                 <%
                     }
                 %>
