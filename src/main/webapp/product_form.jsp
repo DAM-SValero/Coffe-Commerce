@@ -1,3 +1,7 @@
+<%@ page import="com.coffecomerce.dao.Database" %>
+<%@ page import="com.coffecomerce.dao.CategoryDao" %>
+<%@ page import="com.coffecomerce.domain.Category" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,12 +45,23 @@ $(document).ready(function () {
 		  <label class="form-label">Country</label>
 		  <input type="text" name="country" class="form-control">
 		</div>
+
 		<div class="col-md-6">
-		  <label class="form-label">Category</label>
-          <input type="text" name="category" class="form-control">
-		  
-	 </div>
-		</div>
+			<select class="form-control w-50" id="idCategory" name="idCategory">
+				<option> Categoria </option>
+				<%
+					Database databaseUser = new Database();
+					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
+					ArrayList<Category> categories = categoryDao.listAll();
+					for (Category category : categories) {
+						out.println("<option value=\"" + category.getIdCategory() + "\">" + category.getTipo() + "</option>");
+					}
+				%>
+			</select>
+	 	</div>
+
+
+
 		<div class="col-md-6">
 		  <label class="form-label">Amount</label>
           <input type="number" name="price"  class="form-control"
