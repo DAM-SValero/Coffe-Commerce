@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 		<div class="col-md-6">
 			<select class="form-control w-50" id="idCategory" name="idCategory">
-				<option> Categoria </option>
+				<option> Category </option>
 				<%
 					Database databaseUser = new Database();
 					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
 		<div class="col-md-6">
 		  <label class="form-label">Price</label>
-          <input type="number" name="price"  class="form-control"
+          <input type="text" name="price"  class="form-control"
            value="" data-type="currency"
           placeholder="10">
 		</div>
@@ -97,19 +97,17 @@ $(document).ready(function () {
         		  </select>
           </div>
           <div class="col-md-6">
-                  		  <label class="form-label">Img</label>
-                  		  <select class="form-control" name="img">
+               <label class="form-label">Img</label>
+                 <select class="form-control" name="img">
                   		  <%
                   			File file = new File("../img");
                             String[] images = file.list();
                             for (String imageName : images) {
-                                %>
-                                <option><%= imageName %></option>
-                                <%
+                               out.println("<option value=\"" + imageName + "\">" + imageName + "</option>");
                             }
                             %>
-                  		  </select>
-                    </div>
+                </select>
+          </div>
 
 
 	

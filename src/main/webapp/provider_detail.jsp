@@ -22,6 +22,7 @@
       <!-- Core theme CSS (includes Bootstrap)-->
       <link href="css/styles.css" rel="stylesheet" />
 <body>
+
 <jsp:include page="formheader.jsp" />
 
     <div class="container">
