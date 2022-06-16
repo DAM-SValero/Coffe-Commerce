@@ -44,6 +44,7 @@ $(document).ready(function () {
 	});
 });
 </script>
+<jsp:include page="formheader.jsp" />
     <h1 class="display-3 text-muted text-center">PRODUCT FORM</h1>
 	<form action="addProduct" method="post" class="row form-sniped">
 		<div class="col-md-6">
