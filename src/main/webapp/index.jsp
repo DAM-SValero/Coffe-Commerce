@@ -116,7 +116,7 @@
                                 for (Product product: products) {
                         %>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/coffee_1.jpg" alt="..." />
+                        <img class="card-img-top" src="<%= product.getImg() %>" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -146,8 +146,8 @@
                     </div>
                 </div>
             </div>
-
-        </div>
+         </div>
+       </div>
     </section>
     <!-- Footer-->
     <footer class="py-5 bg-dark">

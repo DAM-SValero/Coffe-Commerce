@@ -33,6 +33,7 @@ public class NewProductServlet extends HttpServlet {
         String country = request.getParameter("country");
         String category = request.getParameter("category");
         String intensity = request.getParameter("intensity");
+        String img = request.getParameter("img");
         double price = Double.parseDouble(request.getParameter("price"));
 
         Database database = new Database();
@@ -46,7 +47,7 @@ public class NewProductServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        Product product = new Product(productName, country, intensity, price, newCategory);
+        Product product = new Product(productName, country, intensity, price, newCategory, img);
 
 
 
