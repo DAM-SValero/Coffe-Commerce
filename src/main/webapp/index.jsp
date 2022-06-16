@@ -95,6 +95,16 @@
                     coffees to suit every taste, both espresso and filter coffee. You can find
                     excellent Italian espresso as well as fresh roasted coffee from small Nordic
                     coffee roasteries.</p>
+
+                <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
+
+                %>
+                <a href="product_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Product</a>
+                <a href="provider_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Provider</a>
+                <%
+                    }
+                %>
+
             </div>
         </div>
     </header>
