@@ -6,23 +6,24 @@ public class Product {
     private String  proname;
     private String country;
     private String intensity;
-    private double price;
+    private int price;
+
 
     /**
      * Productos: PARA RELACIONAR LOS PRODUCTOS CON LA CATEGORIA
      */
-    private Category category;
+
 
     public Product() {
 
     }
 
-    public Product(String proname, String country, String intensity, double price ,Category category) {
+    public Product(String proname, String country, String intensity, int price ,int idCategory) {
         this.proname = proname;
         this.country = country;
         this.intensity = intensity;
         this.price = price;
-        this.category = category;
+        this.idCategory = idCategory;
     }
 
     public int getIdProduct() {
@@ -69,7 +70,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
