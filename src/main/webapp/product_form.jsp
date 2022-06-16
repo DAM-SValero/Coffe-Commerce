@@ -3,6 +3,7 @@
 <%@ page import="com.coffecomerce.domain.Category" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.coffecomerce.domain.User" %>
+<%@ page import="java.io.File"%>
 
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
@@ -97,9 +98,15 @@ $(document).ready(function () {
           <div class="col-md-6">
                   		  <label class="form-label">Img</label>
                   		  <select class="form-control" name="img">
-                  			<option value="1">1</option>
-                              <option value="src/main/webapp/img/3avatar.png">img</option>
-                              <option value="src/main/webapp/img/4avatar.png">img</option>
+                  		  <%
+                  			File file = new File("../img");
+                            String[] images = file.list();
+                            for (String imageName : images) {
+                                %>
+                                <option><%= imageName %></option>
+                                <%
+                            }
+                            %>
                   		  </select>
                     </div>
 

@@ -35,10 +35,14 @@ public class NewProductServlet extends HttpServlet {
         String intensity = request.getParameter("intensity");
 
         String img = request.getParameter("img");
+
         double price = Double.parseDouble(request.getParameter("price"));
 
         Database database = new Database();
         ProductDao productDao = new ProductDao(database.getConnection());
+
+
+
 
 
 
