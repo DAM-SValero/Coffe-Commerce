@@ -76,7 +76,7 @@ public class ProductDao {
      * METODO PARA BUSCAR POR ID
      */
     public Optional<Product> findById(int idProduct) throws SQLException {
-        String sql = "SELECT * FROM products WHERE id_Product = ?";
+        String sql = "SELECT * FROM products WHERE id_product = ?";
         Product product = null;
 
         PreparedStatement statement = connection.prepareStatement(sql);
