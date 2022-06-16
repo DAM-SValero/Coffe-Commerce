@@ -17,7 +17,7 @@ public class Product {
 
     }
 
-    public Product(String proname, String country, String intensity, double price ) {
+    public Product(String proname, String country, String intensity, double price ,Category category) {
         this.proname = proname;
         this.country = country;
         this.intensity = intensity;
