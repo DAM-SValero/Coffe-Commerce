@@ -31,7 +31,7 @@ public class NewProductServlet extends HttpServlet {
 
         String productName = request.getParameter("productname");
         String country = request.getParameter("country");
-        String category = request.getParameter("category");
+        String category = request.getParameter("idCategory");
         String intensity = request.getParameter("intensity");
         double price = Double.parseDouble(request.getParameter("price"));
 
