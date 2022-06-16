@@ -1,7 +1,5 @@
 <%@ page import="com.coffecomerce.domain.User" %>
 <%@ page import="com.coffecomerce.dao.Database" %>
-<%@ page import="com.coffecomerce.dao.ProviderDao" %>
-<%@ page import="com.coffecomerce.domain.Provider" %>
 <%@ page import="java.util.Optional" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="com.coffecomerce.dao.ProductDao" %>
