@@ -31,15 +31,15 @@ public class NewProductServlet extends HttpServlet {
 
         String productName = request.getParameter("productname");
         String country = request.getParameter("country");
-        String category = request.getParameter("category");
+        int category = Integer.parseInt(request.getParameter("idCategory"));
         String intensity = request.getParameter("intensity");
+
         String img = request.getParameter("img");
         double price = Double.parseDouble(request.getParameter("price"));
 
         Database database = new Database();
-        CategoryDao categoryDao = new CategoryDao(database.getConnection());
         ProductDao productDao = new ProductDao(database.getConnection());
-        Category newCategory = null;
+
 
         try {
             newCategory = categoryDao.findByName(category).get();
@@ -52,7 +52,7 @@ public class NewProductServlet extends HttpServlet {
 
 
         try {
-            productDao.add(product); //TODO Category
+            productDao.add(product);
             out.println("<a href=\"product_form.jsp\" class=\"btn btn-warning\" type=\"submit\">PRODUCTO AÑADIDO CORRECTAMENTE</a>");
         } catch (ProductAlreadyExistException  pae) {
             out.println("<a href=\"product_form.jsp\" class=\"btn btn-warning\" type=\"submit\">PRODUCTO ya existe en la Base de Datos</a>");

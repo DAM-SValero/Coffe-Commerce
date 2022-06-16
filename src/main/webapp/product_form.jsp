@@ -1,3 +1,17 @@
+<%@ page import="com.coffecomerce.dao.Database" %>
+<%@ page import="com.coffecomerce.dao.CategoryDao" %>
+<%@ page import="com.coffecomerce.domain.Category" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.coffecomerce.domain.User" %>
+
+<!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
+<%
+	User currentUser = (User) session.getAttribute("currentUser");
+	if (currentUser == null || currentUser.equals("USER")) {
+		response.sendRedirect("index.jsp");
+	}
+%>
+<!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,14 +55,25 @@ $(document).ready(function () {
 		  <label class="form-label">Country</label>
 		  <input type="text" name="country" class="form-control">
 		</div>
+
 		<div class="col-md-6">
-		  <label class="form-label">Category</label>
-          <input type="text" name="category" class="form-control">
-		  
-	 </div>
-		</div>
+			<select class="form-control w-50" id="idCategory" name="idCategory">
+				<option> Categoria </option>
+				<%
+					Database databaseUser = new Database();
+					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
+					ArrayList<Category> categories = categoryDao.listAll();
+					for (Category category : categories) {
+						out.println("<option value=\"" + category.getIdCategory() + "\">" + category.getTipo() + "</option>");
+					}
+				%>
+			</select>
+	 	</div>
+
+
+
 		<div class="col-md-6">
-		  <label class="form-label">Amount</label>
+		  <label class="form-label">Price</label>
           <input type="number" name="price"  class="form-control"
            value="" data-type="currency"
           placeholder="10">
