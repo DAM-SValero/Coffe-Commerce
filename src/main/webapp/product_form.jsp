@@ -63,7 +63,7 @@ $(document).ready(function () {
 
 
 		<div class="col-md-6">
-		  <label class="form-label">Amount</label>
+		  <label class="form-label">Price</label>
           <input type="number" name="price"  class="form-control"
            value="" data-type="currency"
           placeholder="10">

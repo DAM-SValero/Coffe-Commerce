@@ -32,14 +32,15 @@ public class ProductDao {
      * METODO PARA AÑADIR PRODUCTOS
      */
     public void add(Product product) throws SQLException, ProductAlreadyExistException {
-        String sql = "INSERT INTO products (proname, country, intensity, price ) VALUES (?, ?, ?, ? )";
+        String sql = "INSERT INTO products (proname, country, intensity, price, id_category ) VALUES ( ? , ? , ? , ? , ? )";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, product.getProname());
         statement.setString(2, product.getCountry());
         statement.setString(3, product.getIntensity());
         statement.setDouble(4, product.getPrice());
-        // statement.setInt(5, product.getIdCategory()); //TODO Category
+        statement.setInt(5, product.getIdCategory());
+
         statement.executeUpdate();
     }
 
@@ -116,7 +117,7 @@ public class ProductDao {
         product.setProname(resultSet.getString("proname"));
         product.setCountry(resultSet.getString("country"));
         product.setIntensity(resultSet.getString("intensity"));
-        product.setPrice(resultSet.getDouble("price"));
+        product.setPrice(resultSet.getInt("price"));
         return product;
     }
 }
