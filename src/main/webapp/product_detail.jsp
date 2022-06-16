@@ -21,6 +21,18 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 <body>
+<!-- AJAX envio a formulario -->
+<script type="text/javascript"> //!--Script de Ajax para asincronia de formulario con servidor-- >
+$(document).ready(function () {
+    $("form").on("submit", function (event) {
+        event.preventDefault();
+        var formValue = $(this).serialize();
+        $.post("add-modify-provider", formValue, function (data) {
+            $("#result").html(data);
+        });
+    });
+});
+</script>
 <jsp:include page="formheader.jsp" />
 
 <div class="container">
