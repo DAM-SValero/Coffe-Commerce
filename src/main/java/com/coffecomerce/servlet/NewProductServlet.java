@@ -41,13 +41,9 @@ public class NewProductServlet extends HttpServlet {
         ProductDao productDao = new ProductDao(database.getConnection());
 
 
-        try {
-            newCategory = categoryDao.findByName(category).get();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        Product product = new Product(productName, country, intensity, price, newCategory, img);
+
+        Product product = new Product(productName, country, intensity, price, category, img);
 
 
 

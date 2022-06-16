@@ -20,13 +20,13 @@ public class Product {
 
     }
 
-    public Product(String proname, String country, String intensity, double price , Category category, String img) {
+    public Product(String proname, String country, String intensity, double price ,int idCategory , String img) {
 
         this.proname = proname;
         this.country = country;
         this.intensity = intensity;
         this.price = price;
-        this.category = category;
+        this.idCategory = idCategory;
         this.img = img;
 
     }
