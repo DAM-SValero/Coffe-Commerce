@@ -1,4 +1,11 @@
+<%@ page import="com.coffecomerce.domain.User" %>
 <!-- Navigation-->
+<!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
+<%
+    User currentUser = (User) session.getAttribute("currentUser");
+%>
+<!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="index.jsp">Coffe-Commerce</a>
@@ -30,7 +37,7 @@
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button> -->
 
-                <h4 class="alert-heading">!!!!WELCOME!!!! </h4>
+                <h4 class="alert-heading">!!!!WELCOME!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
                 <div class="">
                     <a href="logout" type="submit" class="btn btn-light">LogOff</a>
                 </div>
