@@ -83,7 +83,7 @@ public class ProviderDao {
      * LISTADO DE LA TABLA PROVIDERS
      */
     public ArrayList<Provider> findAll() throws SQLException {
-        String sql = "SELECT * FROM providers ORDER BY FirstName";
+        String sql = "SELECT * FROM providers";
         ArrayList<Provider> providers = new ArrayList<>();
 
         PreparedStatement statement = connection.prepareStatement(sql);
