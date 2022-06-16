@@ -2,6 +2,16 @@
 <%@ page import="com.coffecomerce.dao.CategoryDao" %>
 <%@ page import="com.coffecomerce.domain.Category" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.coffecomerce.domain.User" %>
+
+<!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
+<%
+	User currentUser = (User) session.getAttribute("currentUser");
+	if (currentUser == null || currentUser.equals("USER")) {
+		response.sendRedirect("index.jsp");
+	}
+%>
+<!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <!DOCTYPE html>
 <html lang="en">
 
