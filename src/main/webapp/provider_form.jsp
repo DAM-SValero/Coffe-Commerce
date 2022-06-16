@@ -61,6 +61,7 @@ $(document).ready(function () {
 	});
 });
 </script>
+<jsp:include page="formheader.jsp" />
     <h1 class="display-3 text-muted text-center">PROVIDER FORM</h1>
 	<form action="add-modify-provider" method="post" class="row form-sniped">
 
