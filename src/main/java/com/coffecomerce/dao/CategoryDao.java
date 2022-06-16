@@ -90,24 +90,24 @@ public class CategoryDao {
     }
 
     /** Metodo BUSCAR CATEGORIA */
-    public Optional<Category> findById(int idcategory) throws SQLException{
+    public Optional<Category> findById(int idcategory) throws SQLException {
         String sql = "SELECT tipo FROM category WHERE id_category = ?";
         Category category = null;
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, idcategory);
-        ResultSet resultSet = statement.executeQuery(sql);
-            if (resultSet.next()) {
-                category = fromResultSet(resultSet);
-            }
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            category = fromResultSet(resultSet);
+        }
 
-            return Optional.ofNullable(category);
+        return Optional.ofNullable(category);
     }
+
     /** Metodo de resultados */
     private Category fromResultSet(ResultSet resultSet) throws SQLException {
         Category category = new Category();
 
-        category.setIdCategory(resultSet.getInt("id_category"));
         category.setTipo(resultSet.getString("tipo"));
 
         //Devuelve los resultados de la categoria

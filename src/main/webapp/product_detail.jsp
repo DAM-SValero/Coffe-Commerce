@@ -2,16 +2,13 @@
 <%@ page import="com.coffecomerce.dao.Database" %>
 <%@ page import="com.coffecomerce.dao.ProductDao" %>
 <%@ page import="com.coffecomerce.domain.Product" %>
-<%@ page import="com.coffecomerce.dao.CategoryDao" %>
-<%@ page import="com.coffecomerce.domain.Category" %>
 <%@ page import="java.util.Optional" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.coffecomerce.dao.CategoryDao" %>
+<%@ page import="com.coffecomerce.domain.Category" %>
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
     User currentUser = (User) session.getAttribute("currentUser");
-    if (currentUser == null || currentUser.equals("USER")) {
-        response.sendRedirect("index.jsp");
-    }
 %>
 
 <!DOCTYPE html>
@@ -50,8 +47,15 @@
                         <div> <a href="#"><img src="img/coffee_2.jpg"></a></div>
                     </div> <!-- slider-product.// -->
                     <div class="mt-4 d-flex justify-content-center">
+                        <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
+
+                        %>
                         <a href="add-modify-provider" type="submit" class="mx-3 btn btn-primary">Modify</a>
-                        <a href="product_delete_confirm.jsp?id_product=<%= product.getIdProduct() %>" class="mx-3 btn btn-danger">Eliminar</a>                    </div>
+                        <a href="product_delete_confirm.jsp?id_product=<%= product.getIdProduct() %>" class="mx-3 btn btn-danger">Eliminar</a>
+                        <%
+                            }
+                        %>
+                   </div>
                 </article> <!-- gallery-wrap .end// -->
             </aside>
             <aside class="col-sm-7">
@@ -76,24 +80,18 @@
                         <dd><%= product.getPrice() %></dd>
                     </dl>  <!-- item-property-hor .// -->
 
-                    <dl class="param param-feature">
-                        <dt>TYPE</dt>
-                        <dd><%= product.getIdCategory() %></dd>
-
-                    </dl>  <!-- item-property-hor .// -->
-
                     <hr>
                     <div class="row">
                         <div class="col-sm-5">
                             <dl class="param param-inline">
-                                <dt>Quantity: </dt>
-                                <input type="number" id="tentacles" name="tentacles" min="10" max="100">
-                            </dl>  <!-- item-property .// -->
-                        </div> <!-- col.// -->
-                        <div class="col-sm-7">
-                            <dl class="param param-inline">
-                                <dt>INTENSITY: </dt>
-                                <input type="number" min="0" max="10">
+                                <%
+                                    CategoryDao categoryDao = new CategoryDao(database.getConnection());
+                                    Category category = null;
+                                    Optional<Category> optionalCategory = categoryDao.findById(product.getIdCategory());
+                                    category = optionalCategory.get();
+                                %>
+                                <dt>Type: </dt>
+                                <dd><%= category.getTipo() %></dd>
                             </dl>  <!-- item-property .// -->
                         </div> <!-- col.// -->
 
