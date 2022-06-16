@@ -90,12 +90,12 @@ public class CategoryDao {
     }
 
     /** Metodo BUSCAR CATEGORIA */
-    public Optional<Category> findByName(String category_type) throws SQLException{
-        String sql = "SELECT * FROM category WHERE tipo = ?";
+    public Optional<Category> findById(int idcategory) throws SQLException{
+        String sql = "SELECT tipo FROM category WHERE id_category = ?";
         Category category = null;
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, category_type);
+        statement.setInt(1, idcategory);
         ResultSet resultSet = statement.executeQuery(sql);
             if (resultSet.next()) {
                 category = fromResultSet(resultSet);
