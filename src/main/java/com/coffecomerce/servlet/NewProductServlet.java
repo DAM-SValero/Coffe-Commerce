@@ -41,15 +41,7 @@ public class NewProductServlet extends HttpServlet {
         Database database = new Database();
         ProductDao productDao = new ProductDao(database.getConnection());
 
-
-
-
-
-
-
         Product product = new Product(productName, country, intensity, price, category, img);
-
-
 
         try {
             productDao.add(product);

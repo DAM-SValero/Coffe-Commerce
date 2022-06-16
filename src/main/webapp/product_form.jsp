@@ -76,7 +76,7 @@ $(document).ready(function () {
 
 		<div class="col-md-6">
 		  <label class="form-label">Price</label>
-          <input type="number" name="price"  class="form-control"
+          <input type="text" name="price"  class="form-control"
            value="" data-type="currency"
           placeholder="10">
 		</div>
@@ -103,9 +103,7 @@ $(document).ready(function () {
                   			File file = new File("../img");
                             String[] images = file.list();
                             for (String imageName : images) {
-                                %>
-                                <option><%= imageName %></option>
-                                <%
+                               out.println("<option value=\"" + imageName + "\">" + imageName + "</option>");
                             }
                             %>
                 </select>
