@@ -4,6 +4,8 @@
 <%@ page import="com.coffecomerce.domain.Provider" %>
 <%@ page import="java.util.Optional" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.coffecomerce.dao.ProductDao" %>
+<%@ page import="com.coffecomerce.domain.Product" %>
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
     User currentUser = (User) session.getAttribute("currentUser");
@@ -31,21 +33,21 @@
 
     <div class="card">
         <%
-            String providerId = request.getParameter("id_provider");
+            String productId = request.getParameter("id_product");
             Database database = new Database();
-            ProviderDao providerDao = new ProviderDao(database.getConnection());
-            Provider provider = null;
+            ProductDao productDao = new ProductDao(database.getConnection());
+            Product product = null;
             try {
-                Optional<Provider> optionalProvider = providerDao.findById(Integer.parseInt(providerId));
-                provider = optionalProvider.get();
+                Optional<Product> optionalProduct = productDao.findById(Integer.parseInt(productId));
+                product = optionalProduct.get();
         %>
         <div class="container">
-            <h2>Delete Provider</h2>
+            <h2>Delete Product</h2>
             <div class="card text-center">
                 <div class="card-header">CONFIRM DELETE</div>
                 <div class="card-body">
-                    <a href="deleteProvider?id_provider=<%= provider.getIdProvider() %>" class="btn btn-danger">Si</a>
-                    <a href="provider_list.jsp" class="btn btn-outline-danger">No</a>
+                    <a href="deleteProdutc?id_product=<%= product.getIdProduct() %>" class="btn btn-danger">Si</a>
+                    <a href="index.jsp" class="btn btn-outline-danger">No</a>
                 </div>
             </div>
         </div>
@@ -54,7 +56,7 @@
         <%
         } catch (SQLException sqle) {
         %>
-        <div class='alert alert-danger' role='alert'>Se ha producido al cargar los datos del proveedor</div>
+        <div class='alert alert-danger' role='alert'>Se ha producido al cargar los datos del producto</div>
         <%
             }
         %>
