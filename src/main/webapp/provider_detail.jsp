@@ -1,4 +1,9 @@
 <%@ page import="com.coffecomerce.domain.User" %>
+<%@ page import="com.coffecomerce.dao.Database" %>
+<%@ page import="com.coffecomerce.dao.ProviderDao" %>
+<%@ page import="com.coffecomerce.domain.Provider" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="java.sql.SQLException" %>
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
     User currentUser = (User) session.getAttribute("currentUser");
@@ -17,52 +22,7 @@
       <!-- Core theme CSS (includes Bootstrap)-->
       <link href="css/styles.css" rel="stylesheet" />
 <body>
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.jsp">Coffe-Commerce</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <form class="d-flex">
-                <!-- <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button> -->
-                <%
-                    if ((currentUser !=null)) {
-                %>
-                <h4 class="alert-heading">!!!!WELCOME!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
-                <div class="">
-                    <a href="logout" type="submit" class="btn btn-light">LogOff</a>
-                </div>
-                <%
-                    }
-                %>
-
-            </form>
-        </div>
-    </div>
-</nav>
+<jsp:include page="formheader.jsp" />
 
     <div class="container">
         <br>  <p class="text-center">DAM-SValero  /  Coffe-Commerce
@@ -71,6 +31,15 @@
     
         
     <div class="card">
+        <%
+            String providerId = request.getParameter("id_provider");
+            Database database = new Database();
+            ProviderDao providerDao = new ProviderDao(database.getConnection());
+            Provider provider = null;
+            try {
+                Optional<Provider> optionalProvider = providerDao.findById(Integer.parseInt(providerId));
+                provider = optionalProvider.get();
+        %>
         <div class="row">
             <aside class="col-sm-5 border-right">
     <article class="gallery-wrap"> 
@@ -78,20 +47,19 @@
       <div> <a href="#"><img src="img/coffee_2.jpg"></a></div>
     </div> <!-- slider-product.// -->
     <div class="mt-4 d-flex justify-content-center">
-               <button type="button" class="mx-3 btn btn-primary">Modify</button>
-               <button type="button" class="mx-3 btn btn-danger">Delete</button>
-              </div>
+        <a href="add-modify-provider" type="submit" class="mx-3 btn btn-primary">Modify</a>
+        <a href="add-modify-provider" type="submit" class="mx-3 btn btn-danger">Delete</a>
+    </div>
     </article> <!-- gallery-wrap .end// -->
             </aside>
             <aside class="col-sm-7">
     <article class="card-body p-5">
-        <h3 class="title mb-3">PRONAME</h3>
+        <h3 class="title mb-3">PROVIDER</h3>
     
     <p class="price-detail-wrap"> 
         <span class="price h3 text-warning"> 
-            <span class="currency">PRICE US $</span><span class="num"> 0.00</span>
-        </span> 
-        <span>/per kg</span> 
+            <span class="currency"><%= provider.getProvider() %></span>
+        </span>
     </p> <!-- price-detail-wrap .// -->
     <dl class="item-property">
       <dt>Description</dt>
@@ -108,7 +76,7 @@
       <dd>Black and white</dd>
     </dl>  <!-- item-property-hor .// -->
     <dl class="param param-feature">
-      <dt>Delivery</dt>
+      <dt>nOM</dt>
       <dd>Russia, USA, and Europe</dd>
     </dl>  <!-- item-property-hor .// -->
     
@@ -123,17 +91,22 @@
             <div class="col-sm-7">
                 <dl class="param param-inline">
                       <dt>INTENSITY: </dt>
-                      <input type="number" min="0" max="10"
+                      <input type="number" min="0" max="10">
                 </dl>  <!-- item-property .// -->
             </div> <!-- col.// -->
         </div> <!-- row.// -->
         <hr>
-        <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-        <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
     </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
         </div> <!-- row.// -->
     </div> <!-- card.// -->
+        <%
+        } catch (SQLException sqle) {
+        %>
+        <div class='alert alert-danger' role='alert'>Se ha producido al cargar los datos del proveedor</div>
+        <%
+            }
+        %>
     </div>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
