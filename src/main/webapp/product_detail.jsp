@@ -37,15 +37,11 @@
             Database database = new Database();
             ProductDao productDao = new ProductDao(database.getConnection());
             Product product = null;
-            Database database2 = new Database();
-            CategoryDao categoryDao = new CategoryDao(database2.getConnection());
-            Category category = null;
 
             try {
                 Optional<Product> optionalProduct = productDao.findById(Integer.parseInt(productId));
                 product = optionalProduct.get();
-                Optional<Category> optionalCategory = categoryDao.findById(product.getIdCategory());
-                category = optionalCategory.get();
+
         %>
         <div class="row">
             <aside class="col-sm-5 border-right">
@@ -55,8 +51,7 @@
                     </div> <!-- slider-product.// -->
                     <div class="mt-4 d-flex justify-content-center">
                         <a href="add-modify-provider" type="submit" class="mx-3 btn btn-primary">Modify</a>
-                        <a href="add-modify-provider" type="submit" class="mx-3 btn btn-danger">Delete</a>
-                    </div>
+                        <a href="product_delete_confirm.jsp?id_product=<%= product.getIdProduct() %>" class="mx-3 btn btn-danger">Eliminar</a>                    </div>
                 </article> <!-- gallery-wrap .end// -->
             </aside>
             <aside class="col-sm-7">
@@ -83,7 +78,7 @@
 
                     <dl class="param param-feature">
                         <dt>TYPE</dt>
-                        <dd><%= category.getTipo() %></dd>
+                        <dd><%= product.getIdCategory() %></dd>
 
                     </dl>  <!-- item-property-hor .// -->
 

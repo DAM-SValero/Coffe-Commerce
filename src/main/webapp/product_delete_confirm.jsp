@@ -46,7 +46,7 @@
             <div class="card text-center">
                 <div class="card-header">CONFIRM DELETE</div>
                 <div class="card-body">
-                    <a href="deleteProdutc?id_product=<%= product.getIdProduct() %>" class="btn btn-danger">Si</a>
+                    <a href="deleteProduct?id_product=<%= product.getIdProduct() %>" class="btn btn-danger">Si</a>
                     <a href="index.jsp" class="btn btn-outline-danger">No</a>
                 </div>
             </div>
