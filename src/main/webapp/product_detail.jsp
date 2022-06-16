@@ -17,7 +17,7 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -61,19 +61,21 @@
     <div class="img-big-wrap">
       <div> <a href="#"><img src="img/coffee_2.jpg"></a></div>
     </div> <!-- slider-product.// -->
-    <div class="mt-4 d-flex justify-content-center">
-               <button type="button" class="mx-3 btn btn-primary">Modify</button>
-               <button type="button" class="mx-3 btn btn-danger">Delete</button>
-              </div>
+    <div class="img-small-wrap">
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+    </div> <!-- slider-nav.// -->
     </article> <!-- gallery-wrap .end// -->
             </aside>
             <aside class="col-sm-7">
     <article class="card-body p-5">
-        <h3 class="title mb-3">PRONAME</h3>
+        <h3 class="title mb-3">Original Version of Some product name</h3>
     
     <p class="price-detail-wrap"> 
         <span class="price h3 text-warning"> 
-            <span class="currency">PRICE US $</span><span class="num"> 0.00</span>
+            <span class="currency">US $</span><span class="num">1299</span>
         </span> 
         <span>/per kg</span> 
     </p> <!-- price-detail-wrap .// -->
@@ -101,19 +103,39 @@
             <div class="col-sm-5">
                 <dl class="param param-inline">
                   <dt>Quantity: </dt>
-                  <input type="number" id="tentacles" name="tentacles" min="10" max="100">
+                  <dd>
+                      <select class="form-control form-control-sm" style="width:70px;">
+                          <option> 1 </option>
+                          <option> 2 </option>
+                          <option> 3 </option>
+                      </select>
+                  </dd>
                 </dl>  <!-- item-property .// -->
             </div> <!-- col.// -->
             <div class="col-sm-7">
                 <dl class="param param-inline">
-                      <dt>INTENSITY: </dt>
-                      <input type="number" min="0" max="10"
+                      <dt>Size: </dt>
+                      <dd>
+                          <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                          <span class="form-check-label">SM</span>
+                        </label>
+                        <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                          <span class="form-check-label">MD</span>
+                        </label>
+                        <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                          <span class="form-check-label">XXL</span>
+                        </label>
+                      </dd>
                 </dl>  <!-- item-property .// -->
             </div> <!-- col.// -->
         </div> <!-- row.// -->
         <hr>
         <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
         <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+        <button type="button" class="btn btn-lg btn-secondary">Modify (Only Administrator)</button>
     </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
         </div> <!-- row.// -->

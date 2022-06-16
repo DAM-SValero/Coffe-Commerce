@@ -6,37 +6,24 @@ public class Product {
     private String  proname;
     private String country;
     private String intensity;
-
     private double price;
-    private String img;
-
 
     /**
      * Productos: PARA RELACIONAR LOS PRODUCTOS CON LA CATEGORIA
      */
-
+    private Category category;
 
     public Product() {
 
     }
 
-    public Product(String proname, String country, String intensity, double price ,int idCategory , String img) {
-
+    public Product(String proname, String country, String intensity, double price, Category category) {
         this.proname = proname;
         this.country = country;
         this.intensity = intensity;
         this.price = price;
-        this.idCategory = idCategory;
-        this.img = img;
-
+        this.category = category;
     }
-
-    public String getImg() { return img;}
-
-    public void setImg(String img) {
-            this.img = img;
-        }
-
 
     public int getIdProduct() {
         return idProduct;
@@ -82,7 +69,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

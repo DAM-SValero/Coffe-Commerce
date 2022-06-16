@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class CategoryDao {
 
@@ -87,21 +86,6 @@ public class CategoryDao {
         }
 
         return categories;
-    }
-
-    /** Metodo BUSCAR CATEGORIA */
-    public Optional<Category> findByName(String category_type) throws SQLException{
-        String sql = "SELECT * FROM category WHERE tipo = ?";
-        Category category = null;
-
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, category_type);
-        ResultSet resultSet = statement.executeQuery(sql);
-            if (resultSet.next()) {
-                category = fromResultSet(resultSet);
-            }
-
-            return Optional.ofNullable(category);
     }
     /** Metodo de resultados */
     private Category fromResultSet(ResultSet resultSet) throws SQLException {

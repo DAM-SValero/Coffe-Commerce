@@ -1,7 +1,6 @@
 package com.coffecomerce.dao;
 
 import com.coffecomerce.domain.Product;
-import com.coffecomerce.exception.ProductAlreadyExistException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,8 +30,8 @@ public class ProductDao {
     /**
      * METODO PARA AÑADIR PRODUCTOS
      */
-    public void add(Product product) throws SQLException, ProductAlreadyExistException {
-        String sql = "INSERT INTO products (proname, country, intensity, price, id_category, img ) VALUES ( ? , ? , ? , ? , ? , ? )";
+    public void add(Product product) throws SQLException {
+        String sql = "INSERT INTO products (proname, country, intensity, price, id_category) VALUES (?, ?, ?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, product.getProname());
@@ -40,8 +39,6 @@ public class ProductDao {
         statement.setString(3, product.getIntensity());
         statement.setDouble(4, product.getPrice());
         statement.setInt(5, product.getIdCategory());
-        statement.setString(6, product.getImg());
-
         statement.executeUpdate();
     }
 
@@ -118,8 +115,7 @@ public class ProductDao {
         product.setProname(resultSet.getString("proname"));
         product.setCountry(resultSet.getString("country"));
         product.setIntensity(resultSet.getString("intensity"));
-        product.setPrice(resultSet.getInt("price"));
-        product.setImg(resultSet.getString("img"));
+        product.setPrice(resultSet.getDouble("price"));
         return product;
     }
 }

@@ -33,13 +33,13 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.jsp">Coffe-Commerce</a>
+            <a class="navbar-brand" href="index.html">Coffe-Commerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -64,7 +64,7 @@
                     <%
                         if ((currentUser !=null)) {
                     %>
-                    <h4 class="alert-heading">!!!!WELCOME!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
+                    <h4 class="alert-heading">!!!!BIENVENIDO!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
                     <div class="">
                         <a href="logout" type="submit" class="btn btn-light">LogOff</a>
                     </div>
@@ -72,19 +72,20 @@
                         } else {
                     %>
                     <div class="">
-                        <a href="login_register.jsp" type="submit" class="btn btn-light"> LogIn / Register </a>
+                        <a href="login_register.jsp" type="submit" class="btn btn-light">LogIn</a>
+                    </div>
+                    <div class="ms-2">
+                        <a href="login_register.jsp" type="submit" class=" btn btn-light">Register</a>
                     </div>
                     <%
                     }
                     %>
-
 
                 </form>
             </div>
         </div>
     </nav>
     <!-- Header-->
-
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
@@ -95,26 +96,15 @@
                     coffees to suit every taste, both espresso and filter coffee. You can find
                     excellent Italian espresso as well as fresh roasted coffee from small Nordic
                     coffee roasteries.</p>
-
-                <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
-
-                %>
-                <a href="product_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Product</a>
-                <a href="provider_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Provider</a>
-                <a href="provider_list.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">List Provider</a>
-                <%
-                    }
-                %>
-
             </div>
         </div>
     </header>
     <!-- Section-->
     <section class="py-5">
 
+
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
                 <div class="col mb-5">
 
                     <div class="card h-100">
@@ -126,14 +116,13 @@
                                 for (Product product: products) {
                         %>
                         <!-- Product image-->
-
-                       <img class="card-img-top" src="img/<%= product.getImg() %>" />
+                        <img class="card-img-top" src="img/coffee_1.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
 
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Nombre:<%= product.getProname() %> </h5>
+                                <h5 class="fw-bolder">Nombre:<%= product.getProname() %></h5>
                                 <!-- Product price-->
                                 <%= product.getPrice() %>
                             </div>
@@ -157,8 +146,7 @@
                     </div>
                 </div>
             </div>
-         </div>
-       </div>
+        </div>
     </section>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
