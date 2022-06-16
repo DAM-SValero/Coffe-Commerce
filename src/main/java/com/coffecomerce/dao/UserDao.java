@@ -1,5 +1,6 @@
 package com.coffecomerce.dao;
 
+import com.coffecomerce.domain.Product;
 import com.coffecomerce.domain.User;
 import com.coffecomerce.exception.UserAlredyExistException;
 
@@ -7,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class UserDao {
@@ -137,10 +139,28 @@ public class UserDao {
     }
 
     /**
+     * LISTADO DE LA TABLA PRODUCTS
+     */
+    public ArrayList<User> findAll() throws SQLException {
+        String sql = "SELECT * FROM users ORDER BY firstname";
+        ArrayList<User> users = new ArrayList<>();
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            User user = fromResultSet(resultSet);
+            users.add(user);
+        }
+        statement.close();
+        return users;
+    }
+
+    /**
      * PARA USARLO EN LOS LISTADOS QUE DEVUELVE ResultSet
      */
     private User fromResultSet(ResultSet resultSet) throws SQLException {
         User user = new User();
+
         user.setIdUser(resultSet.getInt("id_user"));
         user.setFirstname(resultSet.getString("firstname"));
         user.setSurname(resultSet.getString("surname"));
