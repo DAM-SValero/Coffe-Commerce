@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 		<div class="col-md-6">
 			<select class="form-control w-50" id="idCategory" name="idCategory">
-				<option> Categoria </option>
+				<option> Category </option>
 				<%
 					Database databaseUser = new Database();
 					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
@@ -97,8 +97,8 @@ $(document).ready(function () {
         		  </select>
           </div>
           <div class="col-md-6">
-                  		  <label class="form-label">Img</label>
-                  		  <select class="form-control" name="img">
+               <label class="form-label">Img</label>
+                 <select class="form-control" name="img">
                   		  <%
                   			File file = new File("../img");
                             String[] images = file.list();
@@ -108,8 +108,8 @@ $(document).ready(function () {
                                 <%
                             }
                             %>
-                  		  </select>
-                    </div>
+                </select>
+          </div>
 
 
 	

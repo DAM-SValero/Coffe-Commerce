@@ -127,7 +127,7 @@
                                 for (Product product: products) {
                         %>
                         <!-- Product image-->
-                        <img class="card-img-top" src="<%= product.getImg() %>" alt="..." />
+                       /* <img class="card-img-top" src="src/main/webapp/img/"+"<%= product.getImg() %>" alt="IMG" /> */
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
