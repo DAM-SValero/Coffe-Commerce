@@ -72,8 +72,6 @@ $(document).ready(function () {
 			</select>
 	 	</div>
 
-
-
 		<div class="col-md-6">
 		  <label class="form-label">Price</label>
           <input type="text" name="price"  class="form-control"
