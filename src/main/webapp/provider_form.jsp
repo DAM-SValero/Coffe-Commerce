@@ -1,13 +1,31 @@
 <%@ page import="com.coffecomerce.dao.Database" %>
-<%@ page import="com.coffecomerce.dao.CategoryDao" %>
-<%@ page import="com.coffecomerce.domain.Category" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.coffecomerce.domain.User" %>
+<%@ page import="com.coffecomerce.domain.Provider" %>
+<%@ page import="com.coffecomerce.dao.ProviderDao" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="java.sql.SQLException" %>
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
 	User currentUser = (User) session.getAttribute("currentUser");
 	if (currentUser == null || currentUser.equals("USER")) {
 		response.sendRedirect("index.jsp");
+	}
+
+	String textButton = "";
+	String idProvider = request.getParameter("id_provider");
+	Provider provider = null;
+	if (idProvider !=null) {
+		textButton = "Modify";
+		Database database = new Database();
+		ProviderDao providerDao = new ProviderDao(database.getConnection());
+		try {
+			Optional<Provider> optionalProvider = providerDao.findById(Integer.parseInt(idProvider));
+			provider = optionalProvider.get();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+	} else {
+		textButton = "Submit";
 	}
 %>
 <!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
@@ -69,7 +87,9 @@ $(document).ready(function () {
 	
 		<div class="col-md-12">
 		  <br>
-		  <button class="btn btn-primary form-control">Submit</button>
+			<input type="hidden" name="action" value="<% if (provider != null) out.print("modify"); else out.print("register"); %>">
+			<input type="hidden" name="idProvider" value="<% if (provider != null) out.print(provider.getIdProvider()); %>">
+			<button class="btn btn-primary form-control"><%= textButton %></button>
 		</div>
 	</form>
 
