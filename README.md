@@ -9,31 +9,31 @@ In addition, there will be an exhaustive monitoring of the tasks (assigning the 
 
 # Requirements
 
-**Database**: Design the Entity-Relationship model, prepare the relational model and write the SQL script that will create the table structure that will form the project database.
+✔️**Database**: Design the Entity-Relationship model, prepare the relational model and write the SQL script that will create the table structure that will form the project database.
 
-**UML**: Design the use case diagram (complete, as if you were going to implement all the proposed functionalities), class diagram and the sequence diagram of a functionality that you decide.
+✔️**UML**: Design the use case diagram (complete, as if you were going to implement all the proposed functionalities), class diagram and the sequence diagram of a functionality that you decide.
 
-**Git**: Create a repository on GitHub and manage the development of the project using the Git Flow methodology and registering/managing the incidents found in the GitHub issue manager.
+✔️**Git**: Create a repository on GitHub and manage the development of the project using the Git Flow methodology and registering/managing the incidents found in the GitHub issue manager.
 
-**Functionality** (List and detail): The web application must list the content of a couple of tables and display the details of each record when they are clicked. It must be laid out using HTML + CSS to correctly present the content.
+✔️**Functionality** (List and detail): The web application must list the content of a couple of tables and display the details of each record when they are clicked. It must be laid out using HTML + CSS to correctly present the content.
 
-**Functionality** (Registration and Deletion): It will be possible to register and delete information from a couple of tables (also layout with HTML + CSS) through a form.
+✔️**Functionality** (Registration and Deletion): It will be possible to register and delete information from a couple of tables (also layout with HTML + CSS) through a form.
 
-**Functionality** (modify): You can modify the information of any element from its detail view.
+✔️**Functionality** (modify): You can modify the information of any element from its detail view.
 
 **Functionality** (search): Modifies the web so that users can carry out some type of search or filtering on the data lists.
 
 **Functionality** (relationships): Implement functionalities on the web that allow establishing relationships between data from different tables.
 
-**Functionality** (Javascript): Uses Ajax to execute an action asynchronously, such as registering, deleting or modifying an element of it.
+✔️**Functionality** (Javascript): Uses Ajax to execute an action asynchronously, such as registering, deleting or modifying an element of it.
 
 **Functionality** (Pagination): When displaying the listings, it implements some form of pagination when these listings exceed a set limit.
 
-**Deployment**: The web application will be deployed in the space that each group has reserved on an AWS server.
+✔️**Deployment**: The web application will be deployed in the space that each group has reserved on an AWS server.
 
-**Continuous Integration**: Prepare and configure a job in Jenkins to build the project and launch a code analysis to a SonarQube.
+✔️**Continuous Integration**: Prepare and configure a job in Jenkins to build the project and launch a code analysis to a SonarQube.
 
-**English**: Translates all the texts of the web application so that it is completely displayed in English.
+✔️**English**: Translates all the texts of the web application so that it is completely displayed in English.
 
 
 
