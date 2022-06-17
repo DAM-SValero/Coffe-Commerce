@@ -49,14 +49,15 @@ public class ProductDao {
      * METODO PARA MODIFICAR PRODUCTOS
      */
     public boolean modifyId(int idProduct, Product product) throws SQLException {
-        String sql = "UPDATE products SET proname = ?, country = ?, intensity = ?, price = ? WHERE id_Product = ?";
+        String sql = "UPDATE products SET proname = ?, country = ?, intensity = ?, price = ?, img = ? WHERE id_Product = ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, product.getProname());
         statement.setString(2, product.getCountry());
         statement.setString(3, product.getIntensity());
         statement.setDouble(4, product.getPrice());
-        statement.setInt(5, idProduct);
+        statement.setString(5, product.getImg());
+        statement.setInt(6, idProduct);
         int rows = statement.executeUpdate();
         return rows ==1;
     }
@@ -77,7 +78,7 @@ public class ProductDao {
      * METODO PARA BUSCAR POR ID
      */
     public Optional<Product> findById(int idProduct) throws SQLException {
-        String sql = "SELECT * FROM products WHERE id_Product = ?";
+        String sql = "SELECT * FROM products WHERE id_product = ?";
         Product product = null;
 
         PreparedStatement statement = connection.prepareStatement(sql);

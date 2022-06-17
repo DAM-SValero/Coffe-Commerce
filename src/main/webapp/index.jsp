@@ -45,7 +45,7 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">All Products</a></li>
+                            <li><a class="dropdown-item" href="product_list.jsp" type="submit">All Products</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
@@ -54,6 +54,7 @@
                         </ul>
                     </li>
                 </ul>
+                <%= new java.util.Date() %>
 
                 <form class="d-flex">
                     <!-- <button class="btn btn-outline-dark" type="submit">
@@ -111,22 +112,18 @@
     </header>
     <!-- Section-->
     <section class="py-5">
-
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
+                <%
+                    Database database2 = new Database(); //creamos la conexión con la BBDD
+                    ProductDao productDao2 = new ProductDao(database2.getConnection()); //Creamos un productDao y le pasamos la conexion
+                    try {
+                        List<Product> products = productDao2.findAll();
+                        for (Product product: products) {
+                %>
                 <div class="col mb-5">
-
                     <div class="card h-100">
-                        <%
-                            Database database2 = new Database(); //creamos la conexión con la BBDD
-                            ProductDao productDao2 = new ProductDao(database2.getConnection()); //Creamos un productDao y le pasamos la conexion
-                            try {
-                                List<Product> products = productDao2.findAll();
-                                for (Product product: products) {
-                        %>
                         <!-- Product image-->
-
                        <img class="card-img-top" src="img/<%= product.getImg() %>" />
                         <!-- Product details-->
                         <div class="card-body p-4">
@@ -135,7 +132,7 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Nombre:<%= product.getProname() %> </h5>
                                 <!-- Product price-->
-                                <%= product.getPrice() %>
+                                PRICE: <%= product.getPrice() %>
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -143,6 +140,8 @@
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="product_detail.jsp?id_product=<%= product.getIdProduct() %>">Product detail</a>
                             </div>
                         </div>
+                    </div>
+                </div>
                         <%
                             }
 

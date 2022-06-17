@@ -2,15 +2,11 @@
 <%@ page import="com.coffecomerce.dao.Database" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="com.coffecomerce.dao.ProviderDao" %>
-<%@ page import="com.coffecomerce.domain.Provider" %>
+<%@ page import="com.coffecomerce.dao.ProductDao" %>
+<%@ page import="com.coffecomerce.domain.Product" %>
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
     User currentUser = (User) session.getAttribute("currentUser");
-    if (currentUser == null || currentUser.equals("USER")) {
-        response.sendRedirect("index.jsp");
-    }
-
 %>
 <!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <jsp:include page="formheader.jsp" />
@@ -37,34 +33,35 @@
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
+            <%
+                Database database = new Database(); //creamos la conexión con la BBDD
+                ProductDao productDao = new ProductDao(database.getConnection()); //Creamos un productDao y le pasamos la conexion
+                try {
+                    List<Product> products = productDao.findAll();
+                    for (Product product: products) {
+            %>
             <div class="col mb-5">
-
                 <div class="card h-100">
-                    <%
-                        Database database = new Database(); //creamos la conexión con la BBDD
-                        ProviderDao providerDao = new ProviderDao(database.getConnection()); //Creamos un productDao y le pasamos la conexion
-                        try {
-                            List<Provider> providers = providerDao.findAll();
-                            for (Provider provider: providers) {
-                    %>
+
                     <!-- Product image-->
-                    <img class="card-img-top" src="" alt="..." />
+                    <img class="card-img-top" src="img/<%= product.getImg() %>" />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
 
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Nombre:<%= provider.getProvider() %></h5>
+                            <h5 class="fw-bolder">NAME: <%= product.getProname() %></h5>
                             <!-- Product price-->
-                            <%= provider.getAddress() %>
+                            PRICE: <%= product.getPrice() %>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="provider_detail.jsp?id_provider=<%= provider.getIdProvider() %>">Provider detail</a>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="product_detail.jsp?id_product=<%= product.getIdProduct() %>">Product detail</a>
                         </div>
                     </div>
+                </div>
+            </div>
                     <%
                         }
 

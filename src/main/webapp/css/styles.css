@@ -11291,8 +11291,8 @@ textarea.form-control-lg {
 
 /* Product Details */
 .gallery-wrap .img-big-wrap img {
-  height: 450px;
-  width: auto;
+  height: auto;
+  max-width: 536px;
   display: inline-block;
   cursor: zoom-in;
 }
@@ -11508,5 +11508,10 @@ textarea.form-control-lg {
   padding: 65px 20px;
 }
 
+
+.box {
+  display: flex;
+  flex-flow: row wrap;
+}
 
 /* Add  Button */

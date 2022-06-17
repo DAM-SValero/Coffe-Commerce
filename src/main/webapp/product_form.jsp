@@ -4,12 +4,33 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.coffecomerce.domain.User" %>
 <%@ page import="java.io.File"%>
+<%@ page import="com.coffecomerce.domain.Product" %>
+<%@ page import="com.coffecomerce.dao.ProductDao" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="java.sql.SQLException" %>
 
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
 	User currentUser = (User) session.getAttribute("currentUser");
 	if (currentUser == null || currentUser.equals("USER")) {
 		response.sendRedirect("index.jsp");
+	}
+
+	String textButton = "";
+	String idProduct = request.getParameter("id_product");
+	Product product = null;
+	if (idProduct !=null) {
+		textButton = "Modify";
+		Database database = new Database();
+		ProductDao productDao = new ProductDao(database.getConnection());
+		try {
+			Optional<Product> optionalProduct = productDao.findById(Integer.parseInt(idProduct));
+			product = optionalProduct.get();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+	} else {
+		textButton = "Submit";
 	}
 %>
 <!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
@@ -50,17 +71,17 @@ $(document).ready(function () {
 	<form action="addProduct" method="post" class="row form-sniped">
 		<div class="col-md-6">
 		  <label class="form-label">Product Name</label>
-		  <input type="text" name="productname" class="form-control">
+		  <input type="text" name="productname" class="form-control" value="<% if (product != null) out.print(product.getProname()); %>">
 		</div>
 
 		<div class="col-md-6">
 		  <label class="form-label">Country</label>
-		  <input type="text" name="country" class="form-control">
+		  <input type="text" name="country" class="form-control" value="<% if (product != null) out.print(product.getCountry()); %>">
 		</div>
 
 		<div class="col-md-6">
 			<select class="form-control w-50" id="idCategory" name="idCategory">
-				<option> Category </option>
+
 				<%
 					Database databaseUser = new Database();
 					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
@@ -72,18 +93,15 @@ $(document).ready(function () {
 			</select>
 	 	</div>
 
-
-
 		<div class="col-md-6">
 		  <label class="form-label">Price</label>
-          <input type="text" name="price"  class="form-control"
-           value="" data-type="currency"
-          placeholder="10">
+          <input type="text" name="price"  class="form-control" value="<% if (product != null) out.print(product.getPrice()); %>">
 		</div>
 
 		  <div class="col-md-6">
         		  <label class="form-label">Intensity</label>
         		  <select class="form-control" name="intensity">
+					<option value="Intesidad Actual"><% if (product != null) out.print(product.getIntensity()); else out.print("Choose"); %></option>
         			<option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -110,10 +128,12 @@ $(document).ready(function () {
           </div>
 
 
-	
+
 		<div class="col-md-12">
-		  <br>
-		  <button class="btn btn-primary form-control">Submit</button>
+			<br>
+			<input type="hidden" name="action" value="<% if (product != null) out.print("modify"); else out.print("register"); %>">
+			<input type="hidden" name="idProduct" value="<% if (product != null) out.print(product.getIdProduct()); %>">
+			<button class="btn btn-primary form-control"><%= textButton %></button>
 		</div>
 	</form>
 

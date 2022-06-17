@@ -61,27 +61,28 @@ $(document).ready(function () {
 	});
 });
 </script>
+<jsp:include page="formheader.jsp" />
     <h1 class="display-3 text-muted text-center">PROVIDER FORM</h1>
 	<form action="add-modify-provider" method="post" class="row form-sniped">
 
 		<div class="col-md-6">
 		  <label class="form-label">Provider Name</label>
-		  <input type="text" name="provider" class="form-control">
+		  <input type="text" name="provider" class="form-control" value="<% if (provider != null) out.print(provider.getProvider()); %>">
 		</div>
 
 		<div class="col-md-6">
 		  <label class="form-label">Cif</label>
-		  <input type="text" name="cif" class="form-control">
+		  <input type="text" name="cif" class="form-control" value="<% if (provider != null) out.print(provider.getCif()); %>">
 		</div>
 
 		<div class="col-md-6">
 			<label class="form-label">Address</label>
-			<input type="text" name="address" class="form-control">
+			<input type="text" name="address" class="form-control" value="<% if (provider != null) out.print(provider.getAddress()); %>">
 		</div>
 
 		<div class="col-md-6">
 			<label class="form-label">Country</label>
-			<input type="text" name="country" class="form-control">
+			<input type="text" name="country" class="form-control" value="<% if (provider != null) out.print(provider.getCountry()); %>">
 		</div>
 
 	

@@ -1,4 +1,11 @@
+<%@ page import="com.coffecomerce.domain.User" %>
 <!-- Navigation-->
+<!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
+<%
+    User currentUser = (User) session.getAttribute("currentUser");
+%>
+<!-- FIN Recuperamos la sesion y si es null lo redirect a login.jsp -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="index.jsp">Coffe-Commerce</a>
@@ -13,7 +20,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><a class="dropdown-item" href="product_list.jsp" type="submit">All Products</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
@@ -22,6 +29,7 @@
                     </ul>
                 </li>
             </ul>
+            <%= new java.util.Date() %>
 
             <form class="d-flex">
                 <!-- <button class="btn btn-outline-dark" type="submit">
@@ -30,10 +38,22 @@
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button> -->
 
-                <h4 class="alert-heading">!!!!WELCOME!!!! </h4>
+                <%
+                    if ((currentUser !=null)) {
+                %>
+                <h4 class="alert-heading">!!!!WELCOME!!!! <% if (currentUser != null) out.print(currentUser.getFirstname()); %></h4>
                 <div class="">
                     <a href="logout" type="submit" class="btn btn-light">LogOff</a>
                 </div>
+                <%
+                } else {
+                %>
+                <div class="">
+                    <a href="login_register.jsp" type="submit" class="btn btn-light"> LogIn / Register </a>
+                </div>
+                <%
+                    }
+                %>
 
             </form>
         </div>
