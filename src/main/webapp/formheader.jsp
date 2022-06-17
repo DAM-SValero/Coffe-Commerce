@@ -20,7 +20,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><a class="dropdown-item" href="product_list.jsp" type="submit">All Products</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
@@ -29,6 +29,7 @@
                     </ul>
                 </li>
             </ul>
+            <%= new java.util.Date() %>
 
             <form class="d-flex">
                 <!-- <button class="btn btn-outline-dark" type="submit">
