@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 		<div class="col-md-6">
 			<select class="form-control w-50" id="idCategory" name="idCategory">
-				<option> Category </option>
+
 				<%
 					Database databaseUser = new Database();
 					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
@@ -101,6 +101,7 @@ $(document).ready(function () {
 		  <div class="col-md-6">
         		  <label class="form-label">Intensity</label>
         		  <select class="form-control" name="intensity">
+					<option value="Intesidad Actual"><% if (product != null) out.print(product.getIntensity()); else out.print("Choose"); %></option>
         			<option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
