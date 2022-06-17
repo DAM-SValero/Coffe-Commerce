@@ -35,6 +35,14 @@ In addition, there will be an exhaustive monitoring of the tasks (assigning the 
 
 ✔️**English**: Translates all the texts of the web application so that it is completely displayed in English.
 
+***MODELO ENTIDAD RELACION
+<img width="860" alt="image" src="https://user-images.githubusercontent.com/52208294/174299749-7443c2b9-e07f-4971-b3c5-be82ebd9d43a.png">
+***MODELO RELACIONAL
+<img width="1091" alt="image" src="https://user-images.githubusercontent.com/52208294/174299813-3c6b2090-166b-4603-b322-3a79b8cd6f9e.png">
+DIAGRAMA DE SECUENCIA
+***<img width="722" alt="image" src="https://user-images.githubusercontent.com/52208294/174299864-55edb2fb-f0a1-475d-8e9f-d5f5a418300a.png">
+
+
 
 <img width="1244" alt="image" src="https://user-images.githubusercontent.com/52208294/174299497-cbc7dcc8-09ef-4add-84ab-2b4906542127.png">
 
