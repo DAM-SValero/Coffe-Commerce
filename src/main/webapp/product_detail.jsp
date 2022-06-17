@@ -59,7 +59,7 @@ $(document).ready(function () {
                         <div> <a href="#"><img src="img/<%= product.getImg() %>"></a></div>
                     </div> <!-- slider-product.// -->
                     <div class="mt-4 d-flex justify-content-center">
-                        <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
+                        <% if ((currentUser !=null) && !(currentUser.getRol().equals("USER"))) {
 
                         %>
                         <a href="product_form.jsp?id_product=<%= product.getIdProduct() %>" type="submit"class="mx-3 btn btn-primary">Modify</a>
