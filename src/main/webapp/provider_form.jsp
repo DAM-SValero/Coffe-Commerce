@@ -7,7 +7,7 @@
 <!-- Recuperamos la sesion y si es null lo redirect a login.jsp -->
 <%
 	User currentUser = (User) session.getAttribute("currentUser");
-	if (currentUser == null || currentUser.equals("USER")) {
+	if (currentUser == null || currentUser.getRol().equals("USER")) {
 		response.sendRedirect("index.jsp");
 	}
 
