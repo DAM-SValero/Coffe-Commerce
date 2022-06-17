@@ -97,7 +97,7 @@
                     excellent Italian espresso as well as fresh roasted coffee from small Nordic
                     coffee roasteries.</p>
 
-                <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
+                <% if ((currentUser !=null) && !(currentUser.getRol().equals("USER"))) {
 
                 %>
                 <a href="product_form.jsp" type="submit" class="btn-lg m-4 btn btn-outline-secondary">+ Add Product</a>

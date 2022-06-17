@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 		<div class="col-md-6">
 			<select class="form-control w-50" id="idCategory" name="idCategory">
-
+				<option> Category </option>
 				<%
 					Database databaseUser = new Database();
 					CategoryDao categoryDao = new CategoryDao(databaseUser.getConnection());
