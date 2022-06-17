@@ -114,16 +114,14 @@
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
+                <%
+                    Database database2 = new Database(); //creamos la conexión con la BBDD
+                    ProductDao productDao2 = new ProductDao(database2.getConnection()); //Creamos un productDao y le pasamos la conexion
+                    try {
+                        List<Product> products = productDao2.findAll();
+                        for (Product product: products) {
+                %>
                 <div class="col mb-5">
-                    <%
-                        Database database2 = new Database(); //creamos la conexión con la BBDD
-                        ProductDao productDao2 = new ProductDao(database2.getConnection()); //Creamos un productDao y le pasamos la conexion
-                        try {
-                            List<Product> products = productDao2.findAll();
-                            for (Product product: products) {
-                    %>
-
                     <div class="card h-100">
                         <!-- Product image-->
                        <img class="card-img-top" src="img/<%= product.getImg() %>" />
@@ -142,6 +140,8 @@
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="product_detail.jsp?id_product=<%= product.getIdProduct() %>">Product detail</a>
                             </div>
                         </div>
+                    </div>
+                </div>
                         <%
                             }
 
