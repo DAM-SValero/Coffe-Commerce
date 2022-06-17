@@ -23,7 +23,7 @@ In addition, there will be an exhaustive monitoring of the tasks (assigning the 
 
 **Functionality** (search): Modifies the web so that users can carry out some type of search or filtering on the data lists.
 
-**Functionality** (relationships): Implement functionalities on the web that allow establishing relationships between data from different tables.
+✔️**Functionality** (relationships): Implement functionalities on the web that allow establishing relationships between data from different tables.
 
 ✔️**Functionality** (Javascript): Uses Ajax to execute an action asynchronously, such as registering, deleting or modifying an element of it.
 
