@@ -51,3 +51,18 @@ In addition, there will be an exhaustive monitoring of the tasks (assigning the 
 
 <img width="1244" alt="image" src="https://user-images.githubusercontent.com/52208294/174299497-cbc7dcc8-09ef-4add-84ab-2b4906542127.png">
 
+
+# Continuous Integration
+
+![image](https://user-images.githubusercontent.com/52208294/174300326-60ab9e72-248f-42bd-9dae-a0087b72ee5e.png)
+
+![image](https://user-images.githubusercontent.com/52208294/174300344-198945fa-aaab-479d-a849-58e34efd71dd.png)
+
+![image](https://user-images.githubusercontent.com/52208294/174300365-e7ef6da5-a9ad-4764-b32d-d33c766a1f17.png)
+
+![image](https://user-images.githubusercontent.com/52208294/174300383-3d8e2f67-d39a-4f8d-a239-990238b8d6db.png)
+
+![image](https://user-images.githubusercontent.com/52208294/174300400-9f943e12-1765-4ae7-9871-fef10e2f746b.png)
+
+
+
