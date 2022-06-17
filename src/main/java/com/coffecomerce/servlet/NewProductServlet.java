@@ -5,6 +5,7 @@ import com.coffecomerce.dao.Database;
 import com.coffecomerce.dao.ProductDao;
 import com.coffecomerce.domain.Category;
 import com.coffecomerce.domain.Product;
+import com.coffecomerce.domain.Provider;
 import com.coffecomerce.exception.ProductAlreadyExistException;
 import com.coffecomerce.exception.UserAlredyExistException;
 
@@ -29,23 +30,28 @@ public class NewProductServlet extends HttpServlet {
 
         /** Recuperamos datos del formulario */
 
+        String action = request.getParameter("action");
         String productName = request.getParameter("productname");
         String country = request.getParameter("country");
         int category = Integer.parseInt(request.getParameter("idCategory"));
         String intensity = request.getParameter("intensity");
-
         String img = request.getParameter("img");
-
         double price = Double.parseDouble(request.getParameter("price"));
+        String idProduct = request.getParameter("idProduct");
 
         Database database = new Database();
         ProductDao productDao = new ProductDao(database.getConnection());
-
         Product product = new Product(productName, country, intensity, price, category, img);
 
         try {
-            productDao.add(product);
-            out.println("<a href=\"product_form.jsp\" class=\"btn btn-warning\" type=\"submit\">PRODUCTO AÑADIDO CORRECTAMENTE</a>");
+            if (action.equals("register")) {
+                productDao.add(product);
+                out.println("<a href=\"index.jsp\" class=\"btn btn-warning\" type=\"submit\">PRODUCTO Registrado Correctamente</a>");
+            } else {
+                product = new Product(productName, country, intensity, price, category, img);
+                productDao.modifyId(Integer.parseInt(idProduct), product);
+                out.println("<a href=\"index.jsp\" class=\"btn btn-warning\" type=\"submit\">PRDUCTO Modificado Correctamente</a>");
+            }
         } catch (ProductAlreadyExistException  pae) {
             out.println("<a href=\"product_form.jsp\" class=\"btn btn-warning\" type=\"submit\">PRODUCTO ya existe en la Base de Datos</a>");
             pae.printStackTrace();

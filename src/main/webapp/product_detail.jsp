@@ -62,7 +62,7 @@ $(document).ready(function () {
                         <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
 
                         %>
-                        <a href="add-modify-provider" type="submit" class="mx-3 btn btn-primary">Modify</a>
+                        <a href="product_form.jsp?id_product=<%= product.getIdProduct() %>" type="submit"class="mx-3 btn btn-primary">Modify</a>
                         <a href="product_delete_confirm.jsp?id_product=<%= product.getIdProduct() %>" class="mx-3 btn btn-danger">Delete</a>
                         <%
                             }
