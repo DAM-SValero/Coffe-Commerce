@@ -56,14 +56,14 @@ $(document).ready(function () {
             <aside class="col-sm-5 border-right">
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
-                        <div> <a href="#"><img src="img/coffee_2.jpg"></a></div>
+                        <div> <a href="#"><img src="img/<%= product.getImg() %>"></a></div>
                     </div> <!-- slider-product.// -->
                     <div class="mt-4 d-flex justify-content-center">
                         <% if ((currentUser !=null) && !(currentUser.equals("USER"))) {
 
                         %>
                         <a href="add-modify-provider" type="submit" class="mx-3 btn btn-primary">Modify</a>
-                        <a href="product_delete_confirm.jsp?id_product=<%= product.getIdProduct() %>" class="mx-3 btn btn-danger">Eliminar</a>
+                        <a href="product_delete_confirm.jsp?id_product=<%= product.getIdProduct() %>" class="mx-3 btn btn-danger">Delete</a>
                         <%
                             }
                         %>

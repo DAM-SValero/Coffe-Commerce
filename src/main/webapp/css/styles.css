@@ -11509,4 +11509,9 @@ textarea.form-control-lg {
 }
 
 
+.box {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 /* Add  Button */
